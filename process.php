@@ -9,8 +9,7 @@
         $gender = $_POST['gender'];
         $password = $_POST['password'];
         $confirm_password = $_POST['confirm_password'];
-        // echo $firstname;
-        // exit();
+
         //CHECKS IF PASSWORD DOES NOT MATCH
         if($password !== $confirm_password){
             echo "<p>Password do not Match!</p><a href='register.php'>Go Back </a>";
