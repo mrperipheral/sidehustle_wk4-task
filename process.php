@@ -9,7 +9,8 @@
         $gender = $_POST['gender'];
         $password = $_POST['password'];
         $confirm_password = $_POST['confirm_password'];
-
+        // echo $firstname;
+        // exit();
         //CHECKS IF PASSWORD DOES NOT MATCH
         if($password !== $confirm_password){
             echo "<p>Password do not Match!</p><a href='register.php'>Go Back </a>";
@@ -31,9 +32,11 @@
         $encoded_password = md5($password);
 
         //INSERTS USER
-        $insert_record = mysqli_query($connect_db, "INSERT INTO user(firstname, lastname, username, email, gender, password) VALUE('$firstname', '$lastname', '$username', '$email', '$gender', '$encoded_password')");
+        $insert_record = mysqli_query($connect_db, "INSERT INTO user (firstname, lastname, username, email, gender, password) VALUE('$firstname', '$lastname', '$username', '$email', '$gender', '$encoded_password')");
         if($insert_record){
             header("Location: welcome.php");
+        }else{
+            echo 'Error in registration';
         }
 
     } 
